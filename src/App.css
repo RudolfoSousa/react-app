@@ -1,0 +1,54 @@
+.App-intro{
+  text-align: center;
+}
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.container{
+  width: 90%;
+  margin: 0 auto;
+}
+.coluns{
+  display: flex;
+  justify-content: space-between;
+}
+.coluns .colun{
+  width: 49%;
+  text-align: center;
+}
+.status{
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 20px 0;
+}
+.status.free{
+  color: #00FF7F;
+  background-color: #006400;
+}
+.status.danger{
+  color: #FFA07A;
+  background-color: #FF0000;
+}
+.right-colun .number-clients{
+  font-size: 12px;
+  padding: 20px 0;
+}
