@@ -11,9 +11,10 @@ class App extends Component {
       job: false,
       clients: 0,
       alert: "",
-      time: 2000,
+      time: Math.floor(Math.random() * (6000 - 2000) + 2000),
       timeProcess: 10000,
-      max: 2
+      max: 2,
+      clientsMax: 5
     }
   }
 
@@ -47,7 +48,7 @@ processClient() {
 
   render() {
 
-    const clientsMax = 2;
+    const clientsMax = this.state.clientsMax;
 
     var status = "Aberto!";
 
