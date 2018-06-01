@@ -11,7 +11,7 @@ class App extends Component {
       job: false,
       clients: 0,
       alert: "",
-      timeProcess: 10000,
+      timeProcess: 4500,
       max: 2,
       clientsMax: 5
     }
@@ -22,7 +22,7 @@ clientGo(clientsMax) {
   var time = Math.floor(Math.random() * (6000 - 2000) + 2000)
   setTimeout(() => {
     var num = Math.floor(Math.random() * (this.state.max - 0) + 0);
-    console.log("O número escolhido foi " + num + " em " + time + " segundos");
+    console.log("O número escolhido foi " + num + " em " + time + "ms");
     if( num == 1 ){
       console.log("Cliente na fila")
       this.setState({
@@ -35,16 +35,27 @@ clientGo(clientsMax) {
         clients: this.state.clients
       })
     }
+
+    if( this.state.timeProcess > 0 ){
+      setTimeout( () => {
+        this.setState({
+          clients: this.state.clients - 1
+        });
+    }else{
+      
+    }
+    }, this.state.timeProcess )
+
   }, time)
 };
 
-processClient() {
- // setInterval( () => {
- //   this.setState({
- //     clients: this.state.clients - 1
- //   })
- // }, this.state.timeProcess )
-};
+// processClient() {
+//  setTimeout( () => {
+//    this.setState({
+//      clients: this.state.clients - 1
+//    })
+//  }, this.state.timeProcess )
+// };
 
   render() {
 
@@ -54,7 +65,13 @@ processClient() {
 
     this.state.clients <= clientsMax - 1 ? this.clientGo(clientsMax) : status = "Fechado!"
     // this.clientGo(clientsMax);
-    this.state.clientes != 0 ? this.processClient() : console.log("parou de trabalhar");
+    // if( this.state.clients >= 1 ){
+    //   this.processClient();
+    // } else {
+    //   console.log("parou de trabalhar");
+    // };
+
+    // this.state.clientes >= 0 ? this.processClient() : console.log("parou de trabalhar");
 
     var job = this.state.job;
     var clients = this.state.clients;
